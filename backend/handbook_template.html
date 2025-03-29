@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Survival Handbook - {{ location }}</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            color: #4a2d0b;
+            background: #fff8f0;
+        }
+        .page {
+            page-break-after: always;
+            padding: 2em;
+        }
+        h1, h2, h3 {
+            margin-bottom: 0.5em;
+            color: #d35400;
+        }
+        p {
+            margin: 0.5em 0;
+            line-height: 1.6;
+        }
+        .cover {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            background-image: url("");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+            text-align: center;
+        }
+        .cover h1 {
+            font-size: 3em;
+            color: #ffcc66;
+        }
+        .section {
+            margin-bottom: 1em;
+            background: #fff3e0;
+            padding: 1em;
+            border-radius: 8px;
+            border-left: 5px solid #ff9900;
+        }
+        .map {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            margin-top: 1em;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Cover Page -->
+    <div class="page cover">
+        <h1>Survival Handbook</h1>
+        <h2>{{ location }}</h2>
+        <p>{{ season }} Expedition - {{ days }} Days - Group of {{ number_of_people }} People</p>
+    </div>
+
+    <!-- Equipment & Overview Page -->
+    <div class="page">
+        <h2>Necessary Equipment</h2>
+        <div class="section">
+            <p>{{ equipment_list }}</p>
+        </div>
+
+        <h2>Overview of {{ location }}</h2>
+        <div class="section">
+            <p>{{ overview_text }}</p>
+        </div>
+
+        <h2>Expected Conditions</h2>
+        <div class="section">
+            <p>{{ expected_conditions }}</p>
+        </div>
+    </div>
+
+    <!-- Dangers Page -->
+    <div class="page">
+        <h2>Possible Dangers</h2>
+        <div class="section">
+            <p>{{ dangers_list }}</p>
+        </div>
+        <h3>Safety Tips</h3>
+        <div class="section">
+            <p>{{ safety_tips }}</p>
+        </div>
+    </div>
+
+    <!-- Map Page -->
+    <div class="page">
+        <h2>Map of {{ location }}</h2>
+        <img src="{{ map_image_url }}" alt="Map of the Region" class="map">
+        <p>{{ map_caption }}</p>
+    </div>
+
+</body>
+
+</html>
